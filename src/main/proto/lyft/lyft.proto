@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package lyft;
+
+option java_package = "com.proto.lyft";
+option java_multiple_files = true;
+
+message Lyft {
+  string id = 1;
+  string driver_id = 2;
+  string rating = 3;
+  string car = 4;
+
+}
+
+message CreateLyftRequest {
+  Lyft lyft = 1;
+}
+
+message CreateLyftResponse {
+  Lyft lyft = 1;
+
+}
+
+message ReadLyftRequest {
+  string lyft_id = 1;
+}
+
+message ReadLyftResponse {
+  Lyft lyft = 1;
+}
+
+message ListLyftRequest {
+
+}
+
+message ListLyftResponse {
+  Lyft lyft = 1;
+}
+
+service LyftService {
+
+    rpc CreateLyft(CreateLyftRequest) returns (CreateLyftResponse){};
+    rpc ReadLyft(ReadLyftRequest) returns (ReadLyftResponse){};
+    rpc ListLyft(ListLyftRequest) returns (ListLyftResponse) {};
+}
