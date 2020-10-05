@@ -10,7 +10,9 @@ public class UberServer {
         System.out.println(
                 "Hello gRPC"
         );
-        Server server= ServerBuilder.forPort(50081).addService(new UberServiceImpl()).build();
+        Server server= ServerBuilder.forPort(50081)
+                .addService(new UberServiceImpl())
+                .build();
 
         server.start();
         Runtime.getRuntime().addShutdownHook(new Thread(()->{
